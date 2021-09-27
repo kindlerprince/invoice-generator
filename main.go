@@ -32,12 +32,6 @@ func main() {
 		return
 	}
 
-	err = pdf.AddTTFFont("releif", "relief-serif/Relief-Serif.ttf")
-	if err != nil {
-		log.Print(err.Error())
-		return
-	}
-
 	err = pdf.SetFont("roboto-bold", "", 18)
 	if err != nil {
 		log.Print(err.Error())
@@ -48,13 +42,13 @@ func main() {
 	pdf.SetY(40)
 	pdf.Text("TAX INVOICE")
 	//keeping this for sometime needs to change this font
-	err = pdf.SetFont("releif", "", 14)
+	err = pdf.SetFontSize(10)
 	if err != nil {
 		log.Print(err.Error())
 		return
 	}
-	pdf.SetX(400)
-	pdf.SetY(60)
+	pdf.SetX(430)
+	pdf.SetY(55)
 	pdf.Text("ORIGINAL for RECIPIENT")
 
 	pdf.SetX(30)
