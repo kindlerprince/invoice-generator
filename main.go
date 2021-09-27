@@ -62,7 +62,12 @@ func main() {
 		log.Print(err.Error())
 		return
 	}
-	pdf.Text("No:- 0011030023 | ")
+	//invoice details
+	invoiceNumber := "0011085700"
+	invoiceDate := "19.07.2021"
+	planStart := "19.07.2021"
+	planEnd := "17.08.2021"
+	pdf.Text("No:- " + invoiceNumber + " | ")
 	err = pdf.SetFont("roboto-regular", "", 14)
 	if err != nil {
 		log.Print(err.Error())
@@ -74,7 +79,7 @@ func main() {
 		log.Print(err.Error())
 		return
 	}
-	pdf.Text("25.05.2020")
+	pdf.Text(invoiceDate)
 
 	pdf.SetLineWidth(0.5)
 	pdf.SetLineType("solid")
@@ -166,39 +171,39 @@ func main() {
 	borderWidth := 0.5
 	rectFillColor(&pdf, "1", 8, 30, 265, 18, 16, grey, black, alignCenter, valignMiddle, borderWidth)
 	pdf.SetFont("roboto-regular", "", 8)
-	rectFillColor(&pdf, " fee \"BROWSE+\" (25.05.2020 to 23.06.2020)", 8, 48, 265, 452, 16, grey, black, alignLeft, valignMiddle, borderWidth)
-	rectFillColor(&pdf, "400.000 ", 8, 500, 265, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
+	rectFillColor(&pdf, " fee \"PACE+\" ("+planStart+" to "+planEnd+")", 8, 48, 265, 452, 16, grey, black, alignLeft, valignMiddle, borderWidth)
+	rectFillColor(&pdf, "845.000 ", 8, 500, 265, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
 
 	//rectFillColor(&pdf, "1", 8, 30, 265, 18, 16, grey, black, alignCenter, valignMiddle, borderWidth)
 	pdf.SetFont("roboto-italic", "", 8)
 	rectFillColor(&pdf, "TOTAL AMOUNT ", 8, 30, 281, 470, 16, grey, black, alignRight, valignMiddle, borderWidth)
 	pdf.SetFont("roboto-regular", "", 8)
-	rectFillColor(&pdf, "400.00 ", 8, 500, 281, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
+	rectFillColor(&pdf, "845.00 ", 8, 500, 281, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
 
 	pdf.SetFont("roboto-italic", "", 8)
 	rectFillColor(&pdf, "CGST (9%) ", 8, 30, 297, 470, 16, grey, black, alignRight, valignMiddle, borderWidth)
 	pdf.SetFont("roboto-regular", "", 8)
-	rectFillColor(&pdf, "36.00 ", 8, 500, 297, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
+	rectFillColor(&pdf, "76.05 ", 8, 500, 297, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
 
 	pdf.SetFont("roboto-italic", "", 8)
 	rectFillColor(&pdf, "SGST (9%) ", 8, 30, 313, 470, 16, grey, black, alignRight, valignMiddle, borderWidth)
 	pdf.SetFont("roboto-regular", "", 8)
-	rectFillColor(&pdf, "36.00 ", 8, 500, 313, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
+	rectFillColor(&pdf, "76.05 ", 8, 500, 313, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
 
 	pdf.SetFont("roboto-italic", "", 8)
 	rectFillColor(&pdf, "TOTAL ", 8, 30, 329, 470, 16, grey, black, alignRight, valignMiddle, borderWidth)
 	pdf.SetFont("roboto-regular", "", 8)
-	rectFillColor(&pdf, "472.00 ", 8, 500, 329, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
+	rectFillColor(&pdf, "997.10 ", 8, 500, 329, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
 
 	pdf.SetFont("roboto-italic", "", 8)
 	rectFillColor(&pdf, "Rounded off ", 8, 30, 345, 470, 16, grey, black, alignRight, valignMiddle, borderWidth)
 	pdf.SetFont("roboto-regular", "", 8)
-	rectFillColor(&pdf, "472.00 ", 8, 500, 345, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
+	rectFillColor(&pdf, "997.00 ", 8, 500, 345, 55, 16, grey, black, alignRight, valignMiddle, borderWidth)
 
-	rectFillColor(&pdf, " IN WORDS: INR Four hundred and seventy two rupee", 8, 30, 361, 525, 16, grey, black, alignLeft, valignMiddle, borderWidth)
+	rectFillColor(&pdf, " IN WORDS: INR Nine hundred and ninety seven rupees", 8, 30, 361, 525, 16, grey, black, alignLeft, valignMiddle, borderWidth)
 
 	rectFillColor(&pdf, " Payment method: [_] Cheque [_] D.D/P.O. [_] Cash", 8, 30, 380, 525, 16, grey, black, alignLeft, valignMiddle, borderWidth)
-	rectFillColor(&pdf, " Date of occurrence of chargeable event / payment: 25.05.2020 / 25.05.2020", 8, 30, 396, 525, 16, grey, black, alignLeft, valignMiddle, borderWidth)
+	rectFillColor(&pdf, " Date of occurrence of chargeable event / payment: "+planStart+" / "+planStart, 8, 30, 396, 525, 16, grey, black, alignLeft, valignMiddle, borderWidth)
 
 	pdf.SetX(30)
 	pdf.SetY(423)
