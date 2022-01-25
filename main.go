@@ -62,11 +62,20 @@ func main() {
 		log.Print(err.Error())
 		return
 	}
+	
+	
 	//invoice details
-	invoiceNumber := "0011090879"
-	invoiceDate := "18.08.2021"
-	planStart := "18.08.2021"
-	planEnd := "16.09.2021"
+	invoiceNumber := "0011109588"
+
+	// put date in year , mon, day
+	start := time.Date(2021, 12, 28, 0, 0, 0, 0, time.UTC)
+	// adding 29 days as total days will 30 counting days
+	end := start.AddDate(0, 0, 29)
+
+	invoiceDate := start.Format("02.01.2006")
+	planStart := invoiceDate
+	planEnd := end.Format("02.01.2006")
+	
 	pdf.Text("No:- " + invoiceNumber + " | ")
 	err = pdf.SetFont("roboto-regular", "", 14)
 	if err != nil {
